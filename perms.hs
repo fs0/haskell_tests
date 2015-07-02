@@ -1,3 +1,5 @@
+import Data.List
+
 ins :: a -> [a] -> [[a]]
 ins y [] = [[y]]
 ins y (x:xs) = (y:x:xs) : (map (x:) (ins y xs))
