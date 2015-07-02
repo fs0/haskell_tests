@@ -10,3 +10,7 @@ remdup (x:xs) | elem x $ remdup xs = remdup xs
 perms :: Eq a => [a] -> [[a]]
 perms [] = [[]]
 perms (x:xs) = remdup $ concat $ map (ins x) $ perms xs
+
+permslc :: Eq a => [a] -> [[a]]
+permslc [] = [[]]
+permslc xs = remdup [ x:ys | x <- xs, ys <- permslc $ delete x xs ]
